@@ -10,12 +10,15 @@ fun main() = with(System.`in`.bufferedReader()) {
         words.add(readLine())
     }
 
-    printSortedWords(words)
+    output(sortWords(words))
 }
 
-private fun printSortedWords(words : Set<String>) {
-    val sortedWords = words.sortedWith(compareBy({ it.length }, { it }))
-    sortedWords.forEach { word ->
+private fun sortWords(words : Set<String>): List<String> {
+    return words.sortedWith(compareBy({ it.length }, { it }))
+}
+
+private fun output(words: List<String>) {
+    words.forEach { word ->
         println(word)
     }
 }
